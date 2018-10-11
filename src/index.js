@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 require("regenerator-runtime/runtime");
 
 const program = require('commander');
