@@ -1,3 +1,5 @@
+require("regenerator-runtime/runtime");
+
 const program = require('commander');
 
 const packageInfo = require('../package');
