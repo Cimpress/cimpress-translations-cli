@@ -1,0 +1,19 @@
+language: node_js
+node_js:
+- '8'
+dist: trusty
+sudo: false
+install:
+- npm install
+script:
+- npm run code-check
+- npm run build
+deploy:
+  provider: npm
+  email: TrdelnikSquad@cimpress.com
+  skip_cleanup: true
+  api_key:
+    secure: ZeeDcVQHy5ktaondfZ7P52inbEi8SY8PBXvVx8yIEldWdlhPT2dNQ6vlFz2siehkOjCLkcwv6Gr3TKy8CTwcjc4+yIIcHFqvmt/7zUP2bpKfrm8XGScavnQJg6mo41sOmximQNkM5Z23s4aaESRW3kONQa2ZKFV6ZnEItlltmosjUjueF5nlSV2xp/NZYxAonR17QEdA9F+nU3E1XYzxRFWytkkjPsJyS87OurwLZe1dGJgb34hJ9D7ussRwirTUcY5RgshcYA6G8iBL3fJPRE4uElZ+KVq5VZy6DguKX15wE8tpfdibY7tp/t2Gp0U/v5nkDjikdQeZnFbzmMRgzaOMu+H+be4ADVphwRp86SZXa+sMUbP18wC32ah5/e7exVRzwc3eO86ifwYMACvBv+V6v14LEQe3sJHdFECkYe0KAGEMYmncGoiECrpYasJNsmV/Ckbk05mRvXj0NKqFbCm/J714hnLQ+OR9ctlnWuaVTqUBZ5QFinrrZK/nbDKxByaGXbMSYcO7Wx9xBu801UZqJxNrsIOLHHDG2LJ9We5LOMJc3dv1G8gR/413y/USBbAB1ucmmlj3seLjVks1vhoE4hgmDQtHGIRjp8kwYenu4/i8cNx+dTmJoIqVnNnWYHvQR4Ns42lY5sMdCAM32L8HteuY7IZyoFvPpY57HxI=
+  on:
+    branch: master
+    repo: Cimpress/cimpress-translations-cli
