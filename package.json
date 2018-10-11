@@ -1,13 +1,13 @@
 {
   "name": "cimpress-translations-cli",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A simple client to retrieve translations in CI environment",
   "main": "./lib/index.js",
   "files": [
     "lib"
   ],
   "scripts": {
-    "build": "node ./node_modules/babel-cli/bin/babel.js src -d lib",
+    "build": "babel src -d lib",
     "code-check": "eslint --ext .js --ext .jsx src"
   },
   "repository": {
@@ -30,11 +30,10 @@
   },
   "homepage": "https://github.com/Cimpress/cimpress-translations-cli#readme",
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-env": "^2.4.1",
-    "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-polyfill": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
+    "@babel/cli": "^7.1.2",
+    "@babel/core": "^7.1.2",
+    "@babel/plugin-transform-runtime": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
     "eslint": "^5.6.1"
   },
   "dependencies": {
