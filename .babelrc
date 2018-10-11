@@ -5,6 +5,10 @@
   ],
   "plugins": [
     "transform-class-properties",
-    "transform-decorators"
+    "transform-decorators",
+    [ "transform-runtime", {
+      "polyfill": false,
+      "regenerator": true
+    } ]
   ]
 }
