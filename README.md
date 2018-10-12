@@ -20,15 +20,28 @@ npm i -D cimpress-translations-cli
   -s, --client-secret <secret>        Auth0 Client Secret for the client id.
   -t, --translations-file <filepath>  File where a single file with all languages is created.
   -h, --help                          output usage information
+  
+  --iso639_1                          Produce language file with 2-letter language codes (eg.: en, de, fr, ...).
 ```
 
 ## Integrate into your build pipeline
 
-Here is a sample command you can run as part of your build process.
-The command assumes you have APP_ID, CLIENT_ID and CLIENT_SECRET as environment variables.
-
+The commands below assume (for simplicity) that you have APP_ID, CLIENT_ID and CLIENT_SECRET set as environment variables.
+``
+##### Running manually to test
 ```
-node ./node_modules/cimpress-translations-cli/lib/index -a ${APP_ID} -c ${CLIENT_ID} -s ${CLIENT_SECRET} -t "./src/locales/translations.json"
+node ./node_modules/.bin/cimpress-translations-cli -a ${APP_ID} -c ${CLIENT_ID} -s ${CLIENT_SECRET} -t "./src/locales/translations.json"
+```
+
+##### Setting in your package.json
+```
+    ...
+    scripts: {
+        ...
+        "translate": "cimpress-translations-cli -a ${APP_ID} -c ${CLIENT_ID} -s ${CLIENT_SECRET} -t "./src/locales/translations.json",
+        ...
+    },
+    ...
 ```
 
 ###### Steps performed by the client

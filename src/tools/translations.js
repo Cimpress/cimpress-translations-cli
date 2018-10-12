@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const langs = require('langs');
 
 const CimpressTranslationsClient = require('cimpress-translations').CimpressTranslationsClient;
 
@@ -16,10 +17,17 @@ const downloadTranslations = async (token, params) => {
     const languagePromises = [];
     const translations = {};
     description.languages.forEach((lang) => {
-        log(`Retrieving language translation for ${lang.blobId}`);
+        log(`Retrieving language translation for ${lang.blobId}...`);
         languagePromises.push(
             translationClient.getLanguageBlob(params.applicationId, lang.blobId)
-                .then((blob) =>translations[blob.blobId] = blob.data )
+                .then((blob) => {
+                    if (params.iso639_1) {
+                        const twoLetterLang = langs.where('2', blob.blobId)['1'];
+                        translations[twoLetterLang] = blob.data
+                    } else {
+                        translations[blob.blobId] = blob.data
+                    }
+                } )
         );
     });
 
@@ -30,7 +38,7 @@ const downloadTranslations = async (token, params) => {
         fs.mkdirSync(path.dirname(params.translationsFile));
     }
 
-    log(`Storing translations into ${params.translationsFile}`);
+    log(`Storing translations into ${params.translationsFile} (language codes: ${Object.keys(translations)})`);
     fs.writeFileSync(params.translationsFile, JSON.stringify(translations, null, 4));
 };
 

@@ -17,6 +17,7 @@ program
     .option('-c, --client-id <id>', 'Auth0 Client ID')
     .option('-s, --client-secret <secret>', 'Auth0 Client Secret')
     .option('-t, --translations-file <filepath>', 'File where a single file with all languages is created.')
+    .option('--iso639_1', 'Produce language file with 2-letter language codes (eg.: en, de, fr, ...).')
     .parse(process.argv);
 
 program.on('--help', () => {});
