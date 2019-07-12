@@ -1,6 +1,6 @@
 {
   "name": "cimpress-translations-cli",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "A simple client to retrieve translations in CI environment",
   "main": "./lib/index.js",
   "files": [
@@ -45,6 +45,7 @@
     "cimpress-translations": "^2.1.6",
     "commander": "^2.19.0",
     "langs": "^2.0.0",
+    "lodash": "^4.17.13",
     "regenerator-runtime": "^0.12.1"
   }
 }
