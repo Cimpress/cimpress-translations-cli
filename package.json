@@ -1,6 +1,6 @@
 {
   "name": "cimpress-translations-cli",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "A simple client to retrieve translations in CI environment",
   "main": "./lib/index.js",
   "files": [
